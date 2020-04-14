@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Facturas</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script>
+        function newLine() {
+            $('#detail-lines').append(createLine());
+        }
+
+        function createLine() {
+            return '<div class="border-top my-4"></div>\
+            <div class="row">\
+                <div class="col">\
+                    <label for="concepto-2">Concepto</label>\
+                    <input class="form-control" type="number" id="concepto-2" name="concepto-2">\
+                </div>\
+                <div class="col">\
+                    <label for="precio-2">Precio unitario</label>\
+                    <input class="form-control" type="number" id="precio-2" name="precio-2">\
+                </div>\
+                <div class="col">\
+                    <label for="unidades-2">Unidades</label>\
+                    <input class="form-control" type="number" id="unidades-2" name="unidades-2">\
+                </div>\
+            </div>\
+            <div class="row mt-2">\
+                <div class="col">\
+                    <label for="impbruto-2">Importe bruto</label>\
+                    <input class="form-control" type="number" id="impbruto-2" name="impbruto-2">\
+                </div>\
+                <div class="col">\
+                    <label for="iva-2">IVA</label>\
+                    <input class="form-control" type="number" id="iva-2" name="iva-2">\
+                </div>\
+                <div class="col">\
+                    <label for="imptotal-2">Importe total</label>\
+                    <input class="form-control" type="number" id="imptotal-2" name="imptotal-2">\
+                </div>\
+            </div>';
+        }
+    </script>
+
+</head>
+<body>
+<script type="text/javascript"
+        src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+<div class="p-5">
+    <div class="border border-primary p-3">
+        <h2> Nueva factura </h2>
+        <form id="factura-detail-form" action="/factura" method="post">
+            <h4 class="mt-3"> Detalle de factura </h4>
+            <div id="detail-lines">
+                <div class="row">
+                    <div class="col">
+                        <label for="concepto">Concepto</label>
+                        <input class="form-control" type="number" id="concepto" name="concepto">
+                    </div>
+                    <div class="col">
+                        <label for="precio">Precio unitario</label>
+                        <input class="form-control" type="number" id="precio" name="precio">
+                    </div>
+                    <div class="col">
+                        <label for="unidades">Unidades</label>
+                        <input class="form-control" type="number" id="unidades" name="unidades">
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col">
+                        <label for="impbruto">Importe bruto</label>
+                        <input class="form-control" type="number" id="impbruto" name="impbruto">
+                    </div>
+                    <div class="col">
+                        <label for="iva">IVA</label>
+                        <input class="form-control" type="number" id="iva" name="iva">
+                    </div>
+                    <div class="col">
+                        <label for="imptotal">Importe total</label>
+                        <input class="form-control" type="number" id="imptotal" name="imptotal">
+                    </div>
+                </div>
+            </div>
+            <div class="mt-3">
+                <a class="btn btn-primary" href="#" onclick="newLine()">Nueva linea</a>
+                <input type="submit" class="btn btn-large btn-success" value="Guardar factura">
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Facturas</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <script>
+        function check() {
+            const cif = document.getElementById("cif");
+            const cifC = document.getElementById("cif-cliente");
+            const nombre = document.getElementById("nombre");
+            const nombreC = document.getElementById("nombre-cliente");
+            const direccion = document.getElementById("direccion");
+            const direccionC = document.getElementById("direccion-cliente");
+            const poblacion = document.getElementById("poblacion");
+            const poblacionC = document.getElementById("poblacion-cliente");
+            const provincia = document.getElementById("provincia");
+            const provinciaC = document.getElementById("provincia-cliente");
+            const cpostal = document.getElementById("cpostal");
+            const cpostalC = document.getElementById("cpostal-cliente");
+            const pais = document.getElementById("pais");
+            const paisC = document.getElementById("pais-cliente");
+            const contacto = document.getElementById("contacto");
+            const contactoC = document.getElementById("contacto-cliente");
+            const email = document.getElementById("email");
+            const emailC = document.getElementById("email-cliente");
+            const telf = document.getElementById("telf");
+            const telfC = document.getElementById("telf-cliente");
+
+            var toret = false;
+
+            if (cif.value.trim().length > 0 && nombre.value.trim().length > 0 && direccion.value.trim().length > 0
+                && poblacion.value.trim().length > 0 && provincia.value.trim().length > 0 && cpostal.value.trim().length > 0
+                && pais.value.trim().length > 0 && contacto.value.trim().length > 0 && email.value.trim().length > 8
+                && telf.value.trim().length > 0 && cifC.value.trim().length > 0 && nombreC.value.trim().length > 0
+                && direccionC.value.trim().length > 0 && poblacionC.value.trim().length > 0 && provinciaC.value.trim().length > 0
+                && cpostalC.value.trim().length > 0 && paisC.value.trim().length > 0 && contactoC.value.trim().length > 0
+                && emailC.value.trim().length > 0 && telfC.value.trim().length > 8) {
+                toret = true;
+            }
+            return toret;
+        }
+    </script>
+</head>
+<body>
+<div class="p-5">
+    <div class="border border-primary p-3">
+        <h2> Nueva factura </h2>
+        <form id="factura-form" action="/factura" method="post" onsubmit="return check()">
+            <h4 class="mt-3"> Datos del emisor de la factura</h4>
+            <div class="row">
+                <div class="col">
+                    <label for="cif">CIF</label>
+                    <input class="form-control" type="text" id="cif" name="cif">
+                </div>
+                <div class="col">
+                    <label for="nombre">Nombre</label>
+                    <input class="form-control" type="text" id="nombre" name="nombre">
+                </div>
+                <div class="col">
+                    <label for="direccion">Dirección</label>
+                    <input class="form-control" type="text" id="direccion" name="direccion">
+                </div>
+                <div class="col">
+                    <label for="poblacion">Población</label>
+                    <input class="form-control" type="text" id="poblacion" name="poblacion">
+                </div>
+                <div class="col">
+                    <label for="provincia">Provincia</label>
+                    <input class="form-control" type="text" id="provincia" name="provincia">
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col">
+                    <label for="cpostal">Código postal</label>
+                    <input class="form-control" type="number" id="cpostal" name="cpostal">
+                </div>
+                <div class="col">
+                    <label for="pais">País</label>
+                    <input class="form-control" type="text" id="pais" name="pais">
+                </div>
+                <div class="col">
+                    <label for="contacto">Persona de contacto</label>
+                    <input class="form-control" type="text" id="contacto" name="contacto">
+                </div>
+                <div class="col">
+                    <label for="email">Email</label>
+                    <input class="form-control" type="email" id="email" name="email">
+                </div>
+                <div class="col">
+                    <label for="telf">Teléfono</label>
+                    <input class="form-control" type="number" id="telf" name="telf">
+                </div>
+            </div>
+
+            <h4 class="mt-3"> Datos del cliente </h4>
+            <div class="row">
+                <div class="col">
+                    <label for="cif-cliente">CIF</label>
+                    <input class="form-control" type="text" id="cif-cliente" name="cif-cliente">
+                </div>
+                <div class="col">
+                    <label for="nombre-cliente">Nombre</label>
+                    <input class="form-control" type="text" id="nombre-cliente" name="nombre-cliente">
+                </div>
+                <div class="col">
+                    <label for="direccion-cliente">Dirección</label>
+                    <input class="form-control" type="text" id="direccion-cliente" name="direccion-cliente">
+                </div>
+                <div class="col">
+                    <label for="poblacion-cliente">Población</label>
+                    <input class="form-control" type="text" id="poblacion-cliente" name="poblacion-cliente">
+                </div>
+                <div class="col">
+                    <label for="provincia-cliente">Provincia</label>
+                    <input class="form-control" type="text" id="provincia-cliente" name="provincia-cliente">
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col">
+                    <label for="cpostal-cliente">Código postal</label>
+                    <input class="form-control" type="number" id="cpostal-cliente" name="cpostal-cliente">
+                </div>
+                <div class="col">
+                    <label for="pais-cliente">País</label>
+                    <input class="form-control" type="text" id="pais-cliente" name="pais-cliente">
+                </div>
+                <div class="col">
+                    <label for="contacto-cliente">Persona de contacto</label>
+                    <input class="form-control" type="text" id="contacto-cliente" name="contacto-cliente">
+                </div>
+                <div class="col">
+                    <label for="email-cliente">Email</label>
+                    <input class="form-control" type="email" id="email-cliente" name="email-cliente">
+                </div>
+                <div class="col">
+                    <label for="telf-cliente">Teléfono</label>
+                    <input class="form-control" type="number" id="telf-cliente" name="telf-cliente">
+                </div>
+            </div>
+
+            <div class="mt-3">
+                <input type="submit" class="btn btn-large btn-primary" value="Detallar factura">
+            </div>
+
+        </form>
+    </div>
+</div>
+</body>
+</html>
