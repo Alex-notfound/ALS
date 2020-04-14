@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Vehículos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <script>
+        function check() {
+            var toret = false;
+            const km = document.getElementById("km").value.trim();
+            const time = document.getElementById("time").value.trim();
+            const cons = document.getElementById("consumption").value.trim();
+
+            if (!isNaN(km) && km > 0 && !isNaN(time) && time > 0 && !isNaN(cons) && cons > 0) {
+                toret = true;
+            }
+            return toret;
+        }
+    </script>
+</head>
+<body>
+<div class="p-5">
+    <div class="border border-primary p-5">
+        <h2> Datos del vehículo</h2>
+        <form id="car-form" action="/car" method="post" onsubmit="return check()">
+            <div class="row">
+                <div class="col">
+                    <label for="km">Kilómetros</label>
+                    <input class="form-control" type="number" id="km" name="km">
+                </div>
+                <div class="col">
+                    <label for="time">Tiempo (horas)</label>
+                    <input class="form-control" type="number" id="time" name="time">
+                </div>
+                <div class="col">
+                    <label for="consumption">Consumo medio</label>
+                    <input class="form-control" type="number" id="consumption" name="consumption">
+                </div>
+            </div>
+            <div class="mt-2">
+                <input type="submit" class="btn btn-large btn-primary" value="Ver resultados">
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
